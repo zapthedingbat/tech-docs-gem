@@ -47,7 +47,7 @@ module GovukTechDocs
         input_path = "#{tmp}/input"
         output_path = "#{tmp}/output.svg"
         File.open(input_path, "w") { |f| f.write(code) }
-        ok = exec_with_timeout("#{mmdc} -i #{input_path} -o #{output_path}", 2)
+        ok = exec_with_timeout("#{mmdc} -i #{input_path} -o #{output_path} --theme neutral", 2)
         if ok && File.exist?(output_path)
           File.read(output_path)
         else
